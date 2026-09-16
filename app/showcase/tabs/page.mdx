@@ -1,0 +1,41 @@
+# Tabs & Steps
+
+## Tabs
+
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['Fedora', 'Arch', 'Debian']}>
+  <Tabs.Tab>
+    ```sh
+    sudo dnf install mesa-vulkan-drivers lm_sensors
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```sh
+    sudo pacman -S mesa vulkan-radeon lm_sensors
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```sh
+    sudo apt install mesa-vulkan-drivers lm-sensors
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Steps
+
+import { Steps } from 'nextra/components'
+
+<Steps>
+#### Back up the BIOS
+
+Dump the stock image before flashing anything.
+
+#### Flash the mod
+
+Follow the BIOS flashing guide, keep a hardware programmer nearby.
+
+#### Verify the boot
+
+Check `lscpu`, sensors and dmesg for errors.
+</Steps>

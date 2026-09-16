@@ -1,0 +1,43 @@
+# Code
+
+## With filename and highlighting
+
+```sh filename="unlock.sh" {2}
+sudo systemctl stop bc250-governor
+sudo ./bc250-8core-unlock.sh status
+sudo ./bc250-8core-unlock.sh apply
+```
+
+## Copy button off
+
+```text copy=false
+plain output, no copy button
+Tctl: 62.4 C
+```
+
+## Python example
+
+```python filename="read_mask.py"
+import subprocess
+
+out = subprocess.check_output(
+    ["sudo", "./bc250-8core-unlock.sh", "status"], text=True
+)
+print(out)
+```
+
+## File tree
+
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="docs" defaultOpen>
+    <FileTree.File name="getting-started.mdx" />
+    <FileTree.File name="hardware.mdx" />
+    <FileTree.Folder name="system" defaultOpen>
+      <FileTree.File name="8core-unlock.mdx" />
+      <FileTree.File name="governor.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+  <FileTree.File name="package.json" />
+</FileTree>

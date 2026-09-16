@@ -1,0 +1,15 @@
+# Sensors & Monitoring
+
+Check temperatures, clocks and power draw.
+
+## Example output
+
+```text
+Tctl:            62.4 C
+GPU sclk:       1500 MHz
+GPU power:       84.2 W
+CPU cores:       8 online
+```
+
+> [!TIP]
+> After the 8-core unlock, `pp_dpm_sclk` may report nonsense while clocks are actually fine. Trust the governor curve, not the readout.

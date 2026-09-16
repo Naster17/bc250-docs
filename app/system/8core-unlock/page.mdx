@@ -1,0 +1,49 @@
+# 8-Core CPU Unlock
+
+The BC-250 ships with 6 of its 8 Zen 2 cores active. The other two are **not fused off** - they are masked by a writable SMU register, and flipping that register brings them back.
+
+## What it does
+
+One register controls core availability:
+
+| Register        | Stock                      | Unlocked          |
+| --------------- | -------------------------- | ----------------- |
+| `SMN 0x115A870` | `0x77` (cores 3, 7 masked) | `0xFF` (all 8 cores) |
+
+## Steps
+
+import { Steps } from 'nextra/components'
+
+<Steps>
+#### Stop the governor
+
+The governor races SMN access. Stop it before touching the mailbox.
+
+```sh
+sudo systemctl stop bc250-governor
+```
+
+#### Check the mask
+
+```sh
+sudo ./bc250-8core-unlock.sh status
+```
+
+#### Apply and reboot
+
+```sh
+sudo ./bc250-8core-unlock.sh apply
+sudo reboot
+```
+</Steps>
+
+> [!WARNING]
+> Warm reset keeps the unlock, cold boot loses it. Cutting power is a guaranteed way back to stock 6-core.
+
+## Verify
+
+```sh
+lscpu | grep -E 'Core\(s\) per socket|^CPU\(s\)'
+```
+
+Expected: `Core(s) per socket: 8`, `CPU(s): 16`.

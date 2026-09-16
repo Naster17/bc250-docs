@@ -1,0 +1,35 @@
+# GPU Governor
+
+Controls clocks, voltage and fan curve for the BC250.
+
+## Tabs example
+
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['systemd', 'manual']}>
+  <Tabs.Tab>
+    ```sh
+    sudo systemctl enable --now bc250-governor
+    systemctl status bc250-governor
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```sh
+    sudo ./governor.sh --curve balanced
+    sudo ./governor.sh --status
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## File layout
+
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="governor" defaultOpen>
+    <FileTree.File name="governor.sh" />
+    <FileTree.File name="curves/balanced.conf" />
+    <FileTree.File name="curves/performance.conf" />
+  </FileTree.Folder>
+  <FileTree.File name="README.md" />
+</FileTree>

@@ -1,0 +1,11 @@
+# Diagram
+
+```mermaid
+graph TD
+    A[Cold boot] --> B{Mask?}
+    B -->|0x77| C[6 cores]
+    B -->|0xFF| D[8 cores]
+    C --> E[Apply unlock]
+    E --> F[Warm reboot]
+    F --> D
+```

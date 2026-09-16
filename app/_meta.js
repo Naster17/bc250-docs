@@ -1,7 +1,16 @@
 export default {
   index: {
-    display: 'hidden'
+    title: 'Home',
+    theme: {
+      sidebar: false,
+      toc: false,
+      breadcrumb: false,
+      pagination: false,
+      timestamp: false
+    }
   },
   'getting-started': 'Getting Started',
-  hardware: 'Hardware'
+  hardware: 'Hardware',
+  system: 'System',
+  showcase: 'Showcase'
 }
