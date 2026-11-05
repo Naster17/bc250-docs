@@ -10,7 +10,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "next": "^15.5.28",
+    "next": "^16.4.3",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "react": "^19.3.1",
@@ -18,7 +18,7 @@
     "remark-github-blockquote-alert": "^2.1.0"
   },
   "devDependencies": {
-    "pagefind": "^1.5.2",
+    "pagefind": "^1.6.0",
     "patch-package": "^8.0.1"
   }
 }
