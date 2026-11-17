@@ -4,6 +4,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Nextra 4.x MDX loader is incompatible with Next 16 (Turbopack
+      # serializable-options error); stay on Next 15 until Nextra supports it.
+      - dependency-name: next
+        update-types:
+          - version-update:semver-major
     groups:
       npm-dependencies:
         patterns:
